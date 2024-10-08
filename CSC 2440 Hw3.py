@@ -11,8 +11,8 @@ class LinkedList:
 
 #Inputdata adds the data_list into the LinkedList
     def inputData(self):
-        data_list = [4, 2, 7, 1, 6, 3, 5]
-        for data in data_list:
+        list = [4, 2, 7, 1, 6, 3, 5]
+        for data in list:
             self.append(data)
 
 #append adds a node to the head, only the list is empty. If not empty it puts it at the end of the list
