@@ -9,11 +9,13 @@ class LinkedList:
     def __init__(self):
         self.head = None
 
+#Inputdata adds the data_list into the LinkedList
     def inputData(self):
         data_list = [4, 2, 7, 1, 6, 3, 5]
         for data in data_list:
             self.append(data)
 
+#append adds a node to the head, only the list is empty. If not empty it puts it at the end of the list
     def append(self, data):
         new_node = Node(data)
         if not self.head:
@@ -24,6 +26,7 @@ class LinkedList:
             last = last.next
         last.next = new_node
 
+#This sorts my list using a merge sort algorithm
     def merge_sort(self, head):
         if head is None or head.next is None:
             return head
@@ -35,6 +38,7 @@ class LinkedList:
         sorted_list = self.sorted_merge(left, right)
         return sorted_list
 
+#get_middle just finds the middle node and splits it
     def get_middle(self, head):
         if head is None:
             return head
@@ -45,6 +49,7 @@ class LinkedList:
             fast = fast.next.next
         return slow
 
+#sorted_merge merges the two sorted lists back together
     def sorted_merge(self, a, b):
         if a is None:
             return b
@@ -58,6 +63,7 @@ class LinkedList:
             result.next = self.sorted_merge(a, b.next)
         return result
 
+#average_of_even finds the total value of the even numbers
     def average_of_even(self):
         current = self.head
         even_sum = 0
@@ -69,6 +75,7 @@ class LinkedList:
             current = current.next
         return even_sum / even_count if even_count > 0 else 0
 
+#print_list prints the elements of the list
     def print_list(self):
         current = self.head
         while current:
@@ -76,6 +83,7 @@ class LinkedList:
             current = current.next
         print()
 
+#This is the driver code
 linked_list = LinkedList()
 linked_list.inputData()
 
@@ -89,6 +97,7 @@ linked_list.print_list()
 average_even = linked_list.average_of_even()
 print("Average of even elements:", average_even)
 
+#Results
 # 1) The input of the list is [4, 2, 7, 1, 6, 3, 5]
 # 2) With the use of my merge sort algorithm it sorts into Ascending order [1, 2, 3, 4, 5, 6, 7,]
 # 3) Finally to find the average of even elements my code does 2 + 4 + 6 and divides by 3 and i get 4.0
